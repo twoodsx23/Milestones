@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Available Timelines</h2>
+    {% if timelines %}
+        <ul>
+            {% for name, timeline in timelines.items() %}
+                <li>
+                    <a href="{{ url_for('view_timeline', name=name) }}">{{ name|capitalize }}</a>
+                    <a href="{{ url_for('add_event', timeline_name=name) }}">(Add Event)</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No timelines available. Create one!</p>
+    {% endif %}
+{% endblock %}
