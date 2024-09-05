@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Create a New Timeline</h2>
+    <form method="POST">
+        <label for="name">Timeline Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Create Timeline</button>
+    </form>
+{% endblock %}

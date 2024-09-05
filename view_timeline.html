@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ timeline.name|capitalize }} Timeline</h2>
+    {% if timeline.events %}
+        <ul>
+            {% for event in timeline.events %}
+                <li>{{ event.name|capitalize }}: {{ event.date.strftime('%Y-%m-%d') }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No events in this timeline.</p>
+    {% endif %}
+    <a href="{{ url_for('add_event', timeline_name=timeline.name) }}">Add Event</a>
+{% endblock %}
